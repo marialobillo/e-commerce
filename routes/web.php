@@ -22,3 +22,7 @@ Route::get('/about', [PagesController::class, 'about']);
 Route::get('/shop', [PagesController::class, 'shop']);
 
 Route::get('/show/{id}', [ProductsController::class, 'show']);
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
