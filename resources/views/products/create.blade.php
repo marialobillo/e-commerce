@@ -6,30 +6,31 @@
    
 
     <div class="card-body">
-       <form action="{{ url("/products") }}" method="POST" class="form">
-        @csrf
+        {!! Form::open([
+                'url' => '/products', 
+                'method' => 'POST',
+                'class' => 'form']) !!}  
+                {{ Form::token() }}  
             <div class="form-group">
-                <label for="">Name</label>
-                <input type="text" name="product_name" class="form-control" required>
+            
+                {{ Form::label('', 'Name') }}
+                {{ Form::text('product_name', '', ['class' => 'form-control']) }}
             </div>
 
             <div class="form-group">
-                <label for="">Price</label>
-                <input type="text" name="product_price" class="form-control" required>
+                {{ Form::label('', 'Price') }}
+                {{ Form::text('product_price', '', ['class' => 'form-control']) }}
             </div>
 
             <div class="form-group">
-                <label for="">Description</label>
-                <textarea class="form-control" 
-                name="product_description" id="" cols="30" rows="10" required></textarea>
+                {{ Form::label('', 'Description') }}
+                {{ Form::textarea('product_description', '', ['class' => 'form-control']) }}
             </div>
 
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-info">
+               {{ Form::submit('Save Product', ['class' => 'btn btn-info']) }}
             </div>
 
-        
-        </form>
     </div>
 @endsection
 
