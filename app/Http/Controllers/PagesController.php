@@ -21,9 +21,9 @@ class PagesController extends Controller
 
     public function shop()
     {
-        $products = Product::orderBy('product_name', 'asc')->paginate(2);
+        $products = Product::paginate(10);
 
-        return view('pages.shop', compact('products'));
+        return view('pages.shop')->with('products', $products);
     }
 
 
