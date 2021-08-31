@@ -5,7 +5,7 @@
 
     @foreach($products as $product)
         <div>
-            {{ $product->product_name }}
+            <h3><a href="/show/{{ $product->id }}">{{ $product->product_name }}</a></h3>
             <strong>
                 ${{ $product->product_price }}
             </strong>
