@@ -6,6 +6,6 @@
         <a class="nav-link" href="{{ URL::to('/about') }}">About</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="{{ URL::to('/shop') }}">Shop</a>
+        <a class="nav-link" href="{{ URL::to('/products') }}">Shop</a>
     </li>
 

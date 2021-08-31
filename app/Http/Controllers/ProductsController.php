@@ -24,4 +24,23 @@ class ProductsController extends Controller
 
         return view('products.show', compact('product'));
     }
+
+    public function create()
+    {
+        return view('products.create');
+    }
+
+    public function store(Request $request)
+    {
+        $request->validate([
+            'product_name' => 'required',
+            'product_price' => 'required',
+            'product_description' => 'required',
+        ]);
+
+        Product::create($request->all());
+
+        return redirect()->to('/products')
+            ->with('success', 'Product created successfully');
+    }
 }

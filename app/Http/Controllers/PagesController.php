@@ -21,7 +21,7 @@ class PagesController extends Controller
 
     public function shop()
     {
-        $products = Product::paginate(10);
+        $products = Product::all();
 
         return view('pages.shop')->with('products', $products);
     }

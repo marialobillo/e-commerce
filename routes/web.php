@@ -19,9 +19,13 @@ Route::get('/', [PagesController::class, 'index']);
 
 Route::get('/about', [PagesController::class, 'about']);
 
-Route::get('/shop', [PagesController::class, 'shop']);
+Route::get('/products', [PagesController::class, 'shop']);
 
-Route::get('/show/{id}', [ProductsController::class, 'show']);
+Route::get('/products/create', [ProductsController::class, 'create']);
+
+Route::get('/products/{id}', [ProductsController::class, 'show']);
+
+Route::post('/products', [ProductsController::class, 'store']);
 
 Auth::routes();
 
