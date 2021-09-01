@@ -23,9 +23,15 @@ Route::get('/products', [PagesController::class, 'shop']);
 
 Route::get('/products/create', [ProductsController::class, 'create']);
 
+Route::get('/products/edit/{id}', [ProductsController::class, 'edit']);
+
 Route::get('/products/{id}', [ProductsController::class, 'show']);
 
 Route::post('/products', [ProductsController::class, 'store']);
+
+Route::put('/products', [ProductsController::class, 'update']);
+
+
 
 Auth::routes();
 

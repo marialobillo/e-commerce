@@ -43,4 +43,26 @@ class ProductsController extends Controller
         return redirect()->to('/products')
             ->with('success', 'Product created successfully');
     }
+
+    public function edit($id)
+    {
+        $product = Product::find($id);
+
+        return view('products.edit', compact('product'));        
+    }
+
+    public function update(Request $request){
+        
+        $request->validate([
+            'product_name' => 'required',
+            'product_price' => 'required',
+            'product_description' => 'required',
+        ]);
+
+        $product = Product::find($request->id);
+        $product->update($request->all());
+
+        return redirect()->to('/products')    
+            ->with('success', 'Product have been updated successfully');
+    }
 }

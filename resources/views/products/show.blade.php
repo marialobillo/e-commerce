@@ -8,6 +8,9 @@
                 {{ $product->product_description }}
             </div>
             <p><strong>${{ $product->product_price }}</strong></p>
+
+            <a href="edit/{{ $product->id }}" class="btn btn-success">Edit</a>
+            <a href="" class="btn btn-danger">Delete</a>
         </div>
     </div>
 @endsection

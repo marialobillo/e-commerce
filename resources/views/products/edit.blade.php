@@ -1,0 +1,38 @@
+@extends('layouts.app')
+
+@section('content')
+    <h2>Edit Product</h2>
+
+   
+
+    <div class="card-body">
+        {!! Form::open([
+                'url' => '/products', 
+                'method' => 'PUT',
+                'class' => 'form']) !!}  
+                {{ Form::token() }} 
+                {{ Form::hidden('id', $product->id) }} 
+            <div class="form-group">
+            
+                {{ Form::label('', 'Name') }}
+                {{ Form::text('product_name', $product->product_name, ['class' => 'form-control']) }}
+            </div>
+
+            <div class="form-group">
+                {{ Form::label('', 'Price') }}
+                {{ Form::text('product_price', $product->product_price, ['class' => 'form-control']) }}
+            </div>
+
+            <div class="form-group">
+                {{ Form::label('', 'Description') }}
+                {{ Form::textarea('product_description', $product->product_description, ['class' => 'form-control']) }}
+            </div>
+
+            <div class="form-group">
+               {{ Form::submit('Update Product', ['class' => 'btn btn-info']) }}
+            </div>
+
+    </div>
+@endsection
+
+
