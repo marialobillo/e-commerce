@@ -9,21 +9,18 @@
             </div>
             <p><strong>${{ $product->product_price }}</strong></p>
 
-            {{-- <a href="{{ Route::get('products/{product}', 'ProductController@edit') }}" class="btn btn-success">Edit</a>
-            {{-- <a href="delete/{{ $product->id }}" class="btn btn-danger">Delete*</a> --}}
+        
             <a href="{{ route('products.edit', $product->id) }}" 
                 class="btn btn-success">
                 Edit
             </a>
 
-            {{-- <form action="{{ route('products.destroy', $product->id) }}" method="POST">
-                @csrf
-                @method('DELETE')
-
-                <button type="submit" title="delete" class="btn btn-danger">
-                    Delete
-                </button>
-            </form> --}} 
+            {!! Form::open([ 'route' => ['products.destroy', $product->id],
+                            'method' => 'DELETE'
+            ]) !!}
+            {{ Form::token() }} 
+                {{ Form::submit('Delete', ['class' => 'btn btn-danger']) }}
+            {!! Form::close() !!}
         </div>
     </div>
 @endsection
