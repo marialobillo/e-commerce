@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PagesController;
+use App\Http\Controllers\ClientController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProductsController;
 
@@ -16,7 +17,7 @@ use App\Http\Controllers\ProductsController;
 |
 */
 
-Route::get('/', [PagesController::class, 'index']);
+Route::get('/', [ClientController::class, 'home']);
 
 Route::get('/about', [PagesController::class, 'about']);
 
