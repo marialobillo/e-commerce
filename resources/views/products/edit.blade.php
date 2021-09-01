@@ -7,11 +7,11 @@
 
     <div class="card-body">
         {!! Form::open([
-                'url' => '/products', 
+                'action' => ['App\Http\Controllers\ProductController@update',$product->id], 
                 'method' => 'PUT',
                 'class' => 'form']) !!}  
                 {{ Form::token() }} 
-                {{ Form::hidden('id', $product->id) }} 
+                {{ Form::hidden('_method', 'PUT') }} 
             <div class="form-group">
             
                 {{ Form::label('', 'Name') }}

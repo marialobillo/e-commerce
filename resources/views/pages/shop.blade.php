@@ -26,7 +26,7 @@
             <div class="col-md-4 mb3">
                 <div class="card">
                     <div class="card-body">
-                        <h3><a href="/products/{{ $product->id}}">
+                        <h3><a href="{{ route('products.show', $product->id) }}">
                             {{  $product->product_name  }}</a>
                         </h3>
                         <strong>

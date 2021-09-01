@@ -65,4 +65,13 @@ class ProductsController extends Controller
         return redirect()->to('/products')    
             ->with('success', 'Product have been updated successfully');
     }
+
+    public function destroy($id)
+    {
+        $product = Product::findOrFail($id);
+        $product->delete();
+
+        return redirect('/products')
+            ->with('success', 'Product was deleted successfully.');
+    }
 }
