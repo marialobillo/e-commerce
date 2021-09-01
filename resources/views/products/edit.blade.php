@@ -9,7 +9,8 @@
         {!! Form::open([
                 'action' => ['App\Http\Controllers\ProductController@update',$product->id], 
                 'method' => 'PUT',
-                'class' => 'form']) !!}  
+                'class' => 'form',
+                'files' => 'true']) !!}  
                 {{ Form::token() }} 
                 {{ Form::hidden('_method', 'PUT') }} 
             <div class="form-group">
@@ -21,6 +22,11 @@
             <div class="form-group">
                 {{ Form::label('', 'Price') }}
                 {{ Form::text('product_price', $product->product_price, ['class' => 'form-control']) }}
+            </div>
+
+            <div class="form-group">
+                {{ Form::label('', 'Image') }}
+                {!! Form::file('product_image', ['class' => 'form-control']) !!}
             </div>
 
             <div class="form-group">

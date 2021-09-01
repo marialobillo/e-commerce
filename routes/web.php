@@ -16,9 +16,9 @@ use App\Http\Controllers\ProductsController;
 |
 */
 
-// Route::get('/', [PagesController::class, 'index']);
+Route::get('/', [PagesController::class, 'index']);
 
-// Route::get('/about', [PagesController::class, 'about']);
+Route::get('/about', [PagesController::class, 'about']);
 
 // Route::get('/products', [PagesController::class, 'shop']);
 

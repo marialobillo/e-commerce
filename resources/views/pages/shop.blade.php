@@ -25,6 +25,7 @@
         @foreach($products as $product)
             <div class="col-md-4 mb3">
                 <div class="card">
+                    <img src="/storage/image/{{ $product->product_image }}" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h3><a href="{{ route('products.show', $product->id) }}">
                             {{  $product->product_name  }}</a>

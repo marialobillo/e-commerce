@@ -9,7 +9,9 @@
         {!! Form::open([
                 'url' => '/products', 
                 'method' => 'POST',
-                'class' => 'form']) !!}  
+                'class' => 'form',
+                'files' => 'true'
+                ]) !!}  
                 {{ Form::token() }}  
             <div class="form-group">
             
@@ -23,6 +25,11 @@
             </div>
 
             <div class="form-group">
+                {{ Form::label('', 'Image') }}
+                {!! Form::file('product_image', ['class' => 'form-control']) !!}
+            </div>
+
+            <div class="form-group">
                 {{ Form::label('', 'Description') }}
                 {{ Form::textarea('product_description', '', ['class' => 'form-control']) }}
             </div>
@@ -30,7 +37,7 @@
             <div class="form-group">
                {{ Form::submit('Save Product', ['class' => 'btn btn-info']) }}
             </div>
-
+        {!! Form::close() !!}
     </div>
 @endsection
 
