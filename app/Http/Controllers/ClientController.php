@@ -23,4 +23,9 @@ class ClientController extends Controller
     {
         return view('client.cart');
     }
+
+    public function checkout()
+    {
+        return view('client.checkout');
+    }
 }
