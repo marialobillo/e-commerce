@@ -1,6 +1,11 @@
 @extends('layouts.client')
 
 
+@section('title')
+	Chectout * Ecommerce
+@endsection
+
+
 @section('content')
 
     <!-- start content -->

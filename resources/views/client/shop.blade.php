@@ -1,5 +1,12 @@
 @extends('layouts.client')
 
+
+
+@section('title')
+	Shop * Ecommerce
+@endsection
+
+
 @section('content')
 
 	<!-- start content -->
