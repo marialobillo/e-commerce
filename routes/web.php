@@ -17,13 +17,7 @@ use App\Http\Controllers\ProductsController;
 |
 */
 
-Route::get('/', [ClientController::class, 'home']);
-Route::get('/shop', [ClientController::class, 'shop']);
-Route::get('/cart', [ClientController::class, 'cart']);
-Route::get('/checkout', [ClientController::class, 'checkout']);
-Route::get('/login', [ClientController::class, 'login']);
 
-Route::get('/about', [PagesController::class, 'about']);
 
 
 
@@ -33,3 +27,11 @@ Route::resource('products', ProductController::class);
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/', [ClientController::class, 'home']);
+Route::get('/shop', [ClientController::class, 'shop']);
+Route::get('/cart', [ClientController::class, 'cart']);
+Route::get('/checkout', [ClientController::class, 'checkout']);
+Route::get('/login', [ClientController::class, 'login']);
+
+Route::get('/about', [PagesController::class, 'about']);

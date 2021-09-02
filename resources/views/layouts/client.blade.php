@@ -64,7 +64,7 @@
 	          
 	          <li class="nav-item cta cta-colored"><a href="{{ url('/cart') }}" class="nav-link"><span class="icon-shopping_cart"></span>[0]</a></li>
 
-			  <li class="nav-item active"><a href="login.html" class="nav-link"><span class="fa fa-user"></span>Login</a></li>
+			  <li class="nav-item active"><a href="{{ url('/login') }}" class="nav-link"><span class="fa fa-user"></span>Login</a></li>
 	        </ul>
 		  </div>
 		  
