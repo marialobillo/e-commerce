@@ -33,4 +33,9 @@ class ClientController extends Controller
     {
         return view('client.login');
     }
+
+    public function signin()
+    {
+        return view('client.signin');
+    }
 }

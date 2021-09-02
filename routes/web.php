@@ -33,5 +33,6 @@ Route::get('/shop', [ClientController::class, 'shop']);
 Route::get('/cart', [ClientController::class, 'cart']);
 Route::get('/checkout', [ClientController::class, 'checkout']);
 Route::get('/login', [ClientController::class, 'login']);
+Route::get('/signin', [ClientController::class, 'signin']);
 
 Route::get('/about', [PagesController::class, 'about']);
