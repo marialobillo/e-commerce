@@ -5,6 +5,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductsController;
 
 /*
@@ -37,6 +38,7 @@ Route::get('/login', [ClientController::class, 'login']);
 Route::get('/signin', [ClientController::class, 'signin']);
 
 Route::get('/dashboard', [AdminController::class, 'dashboard']);
-Route::get('/addcategory', [AdminController::class, 'addCategory']);
+Route::get('/addcategory', [CategoryController::class, 'addCategory']);
+Route::get('/categories', [CategoryController::class, 'categories']);
 
 Route::get('/about', [PagesController::class, 'about']);
