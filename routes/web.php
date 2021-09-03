@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\ProductController;
@@ -34,5 +35,8 @@ Route::get('/cart', [ClientController::class, 'cart']);
 Route::get('/checkout', [ClientController::class, 'checkout']);
 Route::get('/login', [ClientController::class, 'login']);
 Route::get('/signin', [ClientController::class, 'signin']);
+
+Route::get('/dashboard', [AdminController::class, 'dashboard']);
+Route::get('/addcategory', [AdminController::class, 'addCategory']);
 
 Route::get('/about', [PagesController::class, 'about']);
