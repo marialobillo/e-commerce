@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\SliderController;
@@ -40,12 +41,17 @@ Route::get('/signin', [ClientController::class, 'signin']);
 
 // Admin Panel
 Route::get('/dashboard', [AdminController::class, 'dashboard']);
+
 Route::get('/addcategory', [CategoryController::class, 'addCategory']);
 Route::get('/categories', [CategoryController::class, 'categories']);
+
 Route::get('/products', [ProductController::class, 'products']);
 Route::get('/addproduct', [ProductController::class, 'addProduct']);
+
 Route::get('/sliders', [SliderController::class, 'sliders']);
 Route::get('/addslider', [SliderController::class, 'addSlider']);
+
+Route::get('/orders', [OrderController::class, 'orders']);
 
 
 Route::get('/about', [PagesController::class, 'about']);
