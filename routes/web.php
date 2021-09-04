@@ -42,7 +42,9 @@ Route::get('/dashboard', [AdminController::class, 'dashboard']);
 Route::get('/addcategory', [CategoryController::class, 'addCategory']);
 Route::get('/categories', [CategoryController::class, 'categories']);
 Route::get('/products', [ProductController::class, 'products']);
-Route::get('/addproducts', [ProductController::class, 'addProduct']);
+Route::get('/addproduct', [ProductController::class, 'addProduct']);
+Route::get('/sliders', [SliderController::class, 'sliders']);
+Route::get('/addslider', [SliderController::class, 'addSlider']);
 
 
 Route::get('/about', [PagesController::class, 'about']);
