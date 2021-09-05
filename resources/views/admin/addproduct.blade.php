@@ -1,7 +1,8 @@
-@extends('layouts.admin')
+@extends('admin_panel.admin')
+
+
 
 @section('content')
-
 
  <!-- Main content -->
  <section class="content">

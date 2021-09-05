@@ -10,7 +10,7 @@ class AdminController extends Controller
 
     public function dashboard()
     {
-        return view('admin_panel.admin');
+        return view('admin.dashboard');
     }
 
     
