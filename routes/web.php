@@ -42,8 +42,8 @@ Route::get('/signin', [ClientController::class, 'signin']);
 // Admin Panel
 Route::get('/dashboard', [AdminController::class, 'dashboard']);
 
-Route::get('/addcategory', [CategoryController::class, 'addCategory']);
-Route::get('/categories', [CategoryController::class, 'categories']);
+Route::resource('categories', CategoryController::class);
+// Route::get('/categories', [CategoryController::class, 'categories']);
 
 Route::get('/products', [ProductController::class, 'products']);
 Route::get('/addproduct', [ProductController::class, 'addProduct']);
@@ -55,3 +55,7 @@ Route::get('/orders', [OrderController::class, 'orders']);
 
 
 Route::get('/about', [PagesController::class, 'about']);
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

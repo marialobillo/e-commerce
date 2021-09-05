@@ -28,6 +28,16 @@
                 <input type="submit" class="btn btn-primary" value="Save" >
               </div>
             </form>
+
+            {!! Form::open([
+              'url' => '/categories', 
+              'method' => 'POST',
+              'class' => 'form',
+              'files' => 'true'
+              ]) !!}  
+              {{ Form::token() }}
+
+            {{!! Form::close() }}
           </div>
           <!-- /.card -->
           </div>
