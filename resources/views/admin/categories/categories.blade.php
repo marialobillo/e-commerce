@@ -29,7 +29,9 @@
                     <td>{{ $category->id }}</td>
                     <td>{{ $category->category_name }}</td>
                     <td>
-                      <a href="#" class="btn btn-primary"><i class="nav-icon fas fa-edit"></i></a>
+                      <a href="{{ url('/categories/'. $category->id . '/edit') }}" class="btn btn-primary">
+                        <i class="nav-icon fas fa-edit"></i>
+                      </a>
                       <a href="#" id="delete" class="btn btn-danger" ><i class="nav-icon fas fa-trash"></i></a>
                     </td>
                   </tr>

@@ -29,7 +29,7 @@ class CategoryController extends Controller
     public function index()
     {
         $categories = Category::all();
-        return view('admin.categories', compact('categories'));
+        return view('admin.categories.categories', compact('categories'));
     }
 
     /**
@@ -39,7 +39,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view('admin.addcategory');
+        return view('admin.categories.create');
     }
 
     /**
@@ -86,7 +86,7 @@ class CategoryController extends Controller
     {
         $category = Category::find($id);
 
-        return view('categories.edit', compact('category'));      
+        return view('admin.categories.edit', compact('category'));      
     }
 
     /**
@@ -104,8 +104,6 @@ class CategoryController extends Controller
 
         $category = Category::findOrFail($id);
         $input = $request->all();
-        
-    
 
         // Update the product with Image
         $category->update($input);
