@@ -28,10 +28,10 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        // $products = Product::all();
+        $categories = Category::all();
 
         // return view('pages.shop')->with('products', $products);
-        return view('admin.categories');
+        return view('admin.categories', compact('categories'));
     }
 
     /**
