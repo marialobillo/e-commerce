@@ -1,73 +1,4 @@
-<!-- Sidebar  -->
-{{-- <nav id="sidebar" class="">
-    <div class="sidebar-header">
-        <h5>Admin Panel v2</h5>
-        <hr>
-    </div>
 
-    <ul class="list-unstyled components">
-        <p>User Profile</p>
-        <li class="active">
-            <a href="{{ url('/dashboard') }}" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Dashboard</a>
-            <ul class="collapse list-unstyled" id="homeSubmenu">
-                <li>
-                    <a href="{{ url('/dashboard') }}">Dashboard</a>
-                </li>
-            </ul>
-        </li>
-       
-        <li>
-            <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Categories</a>
-            <ul class="collapse list-unstyled" id="pageSubmenu">
-                <li>
-                    <a href="#">Add Categorry</a>
-                </li>
-                <li>
-                    <a href="#">Categories</a>
-                </li>
-            </ul>
-        </li>
-        <li>
-            <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Sliders</a>
-            <ul class="collapse list-unstyled" id="pageSubmenu">
-                <li>
-                    <a href="#">Add Slider</a>
-                </li>
-                <li>
-                    <a href="#">Sliders</a>
-                </li>
-            </ul>
-        </li>
-        <li>
-            <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Products</a>
-            <ul class="collapse list-unstyled" id="pageSubmenu">
-                <li>
-                    <a href="#">Add Product</a>
-                </li>
-                <li>
-                    <a href="#">Products</a>
-                </li>
-            </ul>
-        </li>
-        <li>
-            <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Orders</a>
-            <ul class="collapse list-unstyled" id="pageSubmenu">
-                <li>
-                    <a href="#">Orders</a>
-                </li>
-            </ul>
-        </li>
-    </ul>
-
-    <ul class="list-unstyled CTAs">
-        <li>
-            <a href="https://bootstrapious.com/tutorial/files/sidebar.zip" class="download">Download source</a>
-        </li>
-        <li>
-            <a href="https://bootstrapious.com/p/bootstrap-sidebar" class="article">Back to article</a>
-        </li>
-    </ul>
-</nav> --}}
 
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     
@@ -95,8 +26,9 @@
                with font-awesome or any other icon font library -->
           <li class="nav-item has-treeview {{ request()->is('dashboard') ? 'menu-open' : '' }}">
             <a href="{{ url('/dashboard') }}" class="nav-link {{ request()->is('dashboard') ? 'active' : '' }}">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
+             
               <p>
+                <i class="nav-icon fas fa-tachometer-alt"></i>
                 Dashboard
                 <i class="right fas fa-angle-left"></i>
               </p>
@@ -113,8 +45,9 @@
           
           <li class="nav-item has-treeview {{ request()->is('categories') || request()->is('addcategory') ? 'menu-open' : '' }}">
             <a href="{{ url('/categories') }}" class="nav-link {{ request()->is('categories') || request()->is('categories/create') ? 'active' : '' }}">
-              <i class="nav-icon fas fa-folder"></i>
+              
               <p>
+                <i class="nav-icon fas fa-folder"></i>
                 Categories
                 <i class="fas fa-angle-left right"></i>
               </p>
@@ -139,8 +72,9 @@
 
           <li class="nav-item has-treeview  {{ request()->is('sliders') || request()->is('addslider') ? 'menu-open' : '' }}">
             <a href="{{ url('/sliders') }}" class="nav-link {{ request()->is('sliders') || request()->is('addslider') ? 'active' : '' }}">
-              <i class="nav-icon fas fa-folder"></i>
+             
               <p>
+                <i class="nav-icon fas fa-folder"></i>
                 Sliders
                 <i class="fas fa-angle-left right"></i>
               </p>
@@ -165,8 +99,9 @@
 
           <li class="nav-item has-treeview  {{ request()->is('products') || request()->is('addproduct') ? 'menu-open' : '' }}">
             <a href="{{ url('/products') }}" class="nav-link {{ request()->is('products') || request()->is('addproduct') ? 'active' : '' }}">
-              <i class="nav-icon fas fa-folder"></i>
+              
               <p>
+                <i class="nav-icon fas fa-folder"></i>
                 Products
                 <i class="fas fa-angle-left right"></i>
               </p>
@@ -191,8 +126,9 @@
 
           <li class="nav-item has-treeview {{ request()->is('orders') ? 'menu-open' : '' }}">
             <a href="{{ url('/orders') }}" class="nav-link {{ request()->is('orders') ? 'active' : '' }}">
-              <i class="nav-icon fas fa-folder"></i>
+              
               <p>
+                <i class="nav-icon fas fa-folder"></i>
                 Orders
                 <i class="fas fa-angle-left right"></i>
               </p>

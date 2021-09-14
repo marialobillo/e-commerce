@@ -43,7 +43,6 @@ Route::get('/signin', [ClientController::class, 'signin']);
 Route::get('/dashboard', [AdminController::class, 'dashboard']);
 
 Route::resource('categories', CategoryController::class);
-// Route::get('/categories', [CategoryController::class, 'categories']);
 
 Route::get('/products', [ProductController::class, 'products']);
 Route::get('/addproduct', [ProductController::class, 'addProduct']);

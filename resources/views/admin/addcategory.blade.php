@@ -17,29 +17,26 @@
             </div>
             <!-- /.card-header -->
             <!-- form start -->
-            <form>
-              <div class="card-body">
-                <div class="form-group">
-                  <label for="exampleInputEmail1">Category name</label>
-                  <input type="text" name="category_name" class="form-control" id="exampleInputEmail1" placeholder="Enter category">
-                </div>
-              </div>
-              <!-- /.card-body -->
-              <div class="card-footer">
-                <!-- <button type="submit" class="btn btn-primary">Submit</button> -->
-                <input type="submit" class="btn btn-primary" value="Save" >
-              </div>
-            </form>
-
             {!! Form::open([
               'url' => '/categories', 
               'method' => 'POST',
-              'class' => 'form',
-              'files' => 'true'
+              'class' => 'form'
               ]) !!}  
-              {{ Form::token() }}
 
-            {{!! Form::close() }}
+                {{ Form::token() }}  
+
+                <div class="card-body">
+                  {{ Form::label('', 'Category Name') }}
+                  {{ Form::text('category_name', '', ['class' => 'form-control', 'placeholder' => 'Enter Category']) }}
+                </div>
+
+                <div class="card-footer">
+                  {{ Form::submit('Save', ['class' => 'btn btn-primary']) }}
+               </div>
+           {!! Form::close() !!}
+          
+
+           
           </div>
           <!-- /.card -->
           </div>
