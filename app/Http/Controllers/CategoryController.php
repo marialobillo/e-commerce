@@ -29,8 +29,6 @@ class CategoryController extends Controller
     public function index()
     {
         $categories = Category::all();
-
-        // return view('pages.shop')->with('products', $products);
         return view('admin.categories', compact('categories'));
     }
 
@@ -58,7 +56,7 @@ class CategoryController extends Controller
 
         $input = $request->all();
         
-        // Create the new product
+        // Create the new category
         Category::create($input);
 
         return redirect()->to('/categories')
@@ -73,9 +71,9 @@ class CategoryController extends Controller
      */
     public function show($id)
     {
-        $product = Product::findOrFail($id);
+        $category = Category::findOrFail($id);
 
-        return view('products.show', compact('product'));
+        return view('categories.show', compact('category'));
     }
 
     /**
@@ -86,9 +84,9 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        $product = Product::find($id);
+        $category = Category::find($id);
 
-        return view('products.edit', compact('product'));      
+        return view('categories.edit', compact('category'));      
     }
 
     /**
@@ -101,42 +99,20 @@ class CategoryController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'product_name' => 'required',
-            'product_price' => 'required',
-            'product_description' => 'required',
-            'product_image' => 'image|nullable|max:1999',
+            'category_name' => 'required',
         ]);
 
-        $product = Product::findOrFail($id);
+        $category = Category::findOrFail($id);
         $input = $request->all();
         
-
-        if($request->hasFile('product_image')){
-            $filenameWithExt = $request->file('product_image')->getClientOriginalName();
-
-            // Get Filename
-            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
-
-            // Get just Extension
-            $extension = $request->file('product_image')->getClientOriginalExtension();
-
-            // Filename to store 
-            $fileNameToStore = $filename . '_' . time() . '.' . $extension;
-            $input['product_image'] = $fileNameToStore;
-
-            // Upload Image
-            $path = $request->file('product_image')->storeAs('public/image', $fileNameToStore);
-        } else {
-            $fileNameToStore = 'noimage.jpg';
-            $input['product_image'] = $fileNameToStore;
-        }
+    
 
         // Update the product with Image
-        $product->update($input);
+        $category->update($input);
        
 
-        return redirect()->route('products.index')    
-            ->with('success', 'Product have been updated successfully');
+        return redirect()->route('categories.index')    
+            ->with('success', 'Category have been updated successfully');
     }
 
     /**
@@ -147,10 +123,10 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        $product = Product::findOrFail($id);
-        $product->delete();
+        $category = Category::findOrFail($id);
+        $category->delete();
 
-        return redirect('/products')
-            ->with('success', 'Product was deleted successfully.');
+        return redirect('/categories')
+            ->with('success', 'Category was deleted successfully.');
     }
 }
