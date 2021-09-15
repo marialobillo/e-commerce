@@ -40,17 +40,20 @@ Route::get('/login', [ClientController::class, 'login']);
 Route::get('/signin', [ClientController::class, 'signin']);
 
 // Admin Panel
-Route::get('/dashboard', [AdminController::class, 'dashboard']);
+Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard.index');
 
 Route::resource('categories', CategoryController::class);
+Route::resource('sliders', SliderController::class);
+Route::resource('products', ProductController::class);
+Route::resource('orders', OrderController::class);
 
-Route::get('/products', [ProductController::class, 'products']);
-Route::get('/addproduct', [ProductController::class, 'addProduct']);
+// Route::get('/products', [ProductController::class, 'products']);
+// Route::get('/addproduct', [ProductController::class, 'addProduct']);
 
-Route::get('/sliders', [SliderController::class, 'sliders']);
-Route::get('/addslider', [SliderController::class, 'addSlider']);
+// Route::get('/sliders', [SliderController::class, 'sliders']);
+// Route::get('/addslider', [SliderController::class, 'addSlider']);
 
-Route::get('/orders', [OrderController::class, 'orders']);
+// Route::get('/orders', [OrderController::class, 'orders']);
 
 
 Route::get('/about', [PagesController::class, 'about']);
