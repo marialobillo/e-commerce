@@ -59,7 +59,7 @@ class CategoryController extends Controller
         // Create the new category
         Category::create($input);
 
-        return redirect()->to('/categories')
+        return redirect()->route('categories.index')
             ->with('success', 'Category created successfully');
     }
 
