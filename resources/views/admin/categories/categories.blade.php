@@ -32,7 +32,6 @@
                         <a href="{{ route('categories.edit', [$category->id]) }}" class="btn btn-primary">
                         <i class="nav-icon fas fa-edit"></i>
                       </a>
-                      {{-- <a href="{{ route('categories.destroy', [$category->id]) }}" id="delete" class="btn btn-danger" ><i class="nav-icon fas fa-trash"></i></a> --}}
                     
                       {!! Form::open([ 'route' => ['categories.destroy', $category->id],
                       'method' => 'DELETE', 'class' => 'float-right'
