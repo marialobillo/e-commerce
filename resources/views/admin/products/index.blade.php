@@ -34,14 +34,16 @@
                       <td>{{ $product->id }}</td>
                       <td>
                         
-                        <img src="/storage/image/{{ $product->product_image }}" class="profile elevation-2" width="340px">
+                        <img src="/storage/image/{{ $product->product_image }}" class="profile elevation-2" width="140px">
                       </td>
                       <td>{{ $product->product_name }}</td>
                       <td>{{ $product->category->category_name }}</td>
-                      <td>5</td>
+                      <td>${{ number_format($product->product_price / 100, 2)}}</td>
                       <td>
                         <a href="#" class="btn btn-warning">Activate</a>
-                        <a href="#" class="btn btn-primary"><i class="nav-icon fas fa-edit"></i></a>
+                        <a href="{{ route('products.edit', [$product->id]) }}" class="btn btn-primary">
+                          <i class="nav-icon fas fa-edit"></i>
+                        </a>
                         <a href="#" id="delete" class="btn btn-danger" ><i class="nav-icon fas fa-trash"></i></a>
                       </td>
                     </tr>

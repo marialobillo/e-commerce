@@ -29,7 +29,6 @@ class ProductController extends Controller
     public function create()
     {
         $categories = Category::pluck('category_name', 'id');
-        // dd($categories);
         return view('admin.products.create', compact('categories'));
     }
 
@@ -98,9 +97,13 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        $product = Product::find($id);
+        $product = Product::findOrFail($id);
+        $categories = Category::pluck('category_name', 'id');
 
-        return view('admin.products.edit', compact('product'));      
+        return view('admin.products.edit', [
+            'product' => $product, 
+            'categories' => $categories
+        ]);     
     }
 
     /**
@@ -112,6 +115,7 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
+
         $request->validate([
             'product_name' => 'required',
             'product_price' => 'required',
@@ -120,6 +124,23 @@ class ProductController extends Controller
 
         $product = Product::findOrFail($id);
         $input = $request->all();
+
+        if($request->hasFile('product_image')){
+            $filenameWithExt = $request->file('product_image')->getClientOriginalName();
+
+            // Get Filename
+            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+
+            // Get just Extension
+            $extension = $request->file('product_image')->getClientOriginalExtension();
+
+            // Filename to store 
+            $fileNameToStore = $filename . '_' . time() . '.' . $extension;
+            $input['product_image'] = $fileNameToStore;
+
+            // Upload Image
+            $path = $request->file('product_image')->storeAs('public/image', $fileNameToStore);
+        } 
 
         // Update the product with Image
         $product->update($input);
