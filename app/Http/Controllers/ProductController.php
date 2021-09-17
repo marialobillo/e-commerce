@@ -7,19 +7,6 @@ use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
-    
-
-    public function categories()
-    {
-        return view('admin.categories');
-    }
-
-    
-    public function addCategory()
-    {
-        return view('admin.addcategory');
-    }
-
 
 
     /**
@@ -29,7 +16,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Products::all();
+        $products = Product::all();
         return view('admin.products.index', compact('products'));
     }
 

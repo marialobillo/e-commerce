@@ -8,19 +8,6 @@ use Illuminate\Http\Request;
 class CategoryController extends Controller
 {
 
-    public function categories()
-    {
-        return view('admin.categories');
-    }
-
-    
-    public function addCategory()
-    {
-        return view('admin.addcategory');
-    }
-
-
-
     /**
      * Display a listing of the resource.
      *
