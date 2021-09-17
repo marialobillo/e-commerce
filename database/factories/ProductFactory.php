@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\Product;
+use App\Models\Category;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class ProductFactory extends Factory
@@ -24,7 +25,8 @@ class ProductFactory extends Factory
         return [
             'product_name' => $this->faker->word(2),
             'product_price' => $this->faker->numberBetween($min = 100, $max = 10000),
-            'product_description' => $this->faker->paragraph(),
+            'category_id' => $this->faker->numberBetween(1, Category::count()),
+            'product_image' => 'https://source.unsplash.com/random',
         ];
     }
 }

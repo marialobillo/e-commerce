@@ -54,15 +54,17 @@ class ProductController extends Controller
     {
         $request->validate([
             'product_name' => 'required',
+            'product_price' => 'required',
+            'category_id' => 'required',
         ]);
 
         $input = $request->all();
         
         // Create the new category
-        Category::create($input);
+        Product::create($input);
 
-        return redirect()->to('/categories')
-            ->with('success', 'Category created successfully');
+        return redirect()->route('products.index')
+            ->with('success', 'Product has been created successfully');
     }
 
     /**
@@ -73,9 +75,9 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-        $category = Category::findOrFail($id);
+        $product = Product::findOrFail($id);
 
-        return view('categories.show', compact('category'));
+        return view('products.show', compact('product'));
     }
 
     /**
@@ -86,9 +88,9 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        $category = Category::find($id);
+        $product = Product::find($id);
 
-        return view('admin.categories.edit', compact('category'));      
+        return view('admin.products.edit', compact('product'));      
     }
 
     /**
@@ -101,18 +103,20 @@ class ProductController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'category_name' => 'required',
+            'product_name' => 'required',
+            'product_price' => 'required',
+            'category_id' => 'required',
         ]);
 
-        $category = Category::findOrFail($id);
+        $product = Product::findOrFail($id);
         $input = $request->all();
 
         // Update the product with Image
-        $category->update($input);
+        $product->update($input);
        
 
-        return redirect()->route('categories.index')    
-            ->with('success', 'Category have been updated successfully');
+        return redirect()->route('products.index')    
+            ->with('success', 'Product have been updated successfully');
     }
 
     /**
@@ -123,10 +127,10 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-        $category = Category::findOrFail($id);
-        $category->delete();
+        $product = Product::findOrFail($id);
+        $product->delete();
 
-        return redirect('/categories')
-            ->with('success', 'Category was deleted successfully.');
+        return redirect('/products')
+            ->with('success', 'Product was deleted successfully.');
     }
 }
