@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -27,7 +28,8 @@ class ProductController extends Controller
      */
     public function create()
     {
-        $categories = Category::all();
+        $categories = Category::pluck('category_name', 'id');
+        // dd($categories);
         return view('admin.products.create', compact('categories'));
     }
 
@@ -43,9 +45,30 @@ class ProductController extends Controller
             'product_name' => 'required',
             'product_price' => 'required',
             'category_id' => 'required',
+            'product_image' => 'image|nullable|max:1999',
         ]);
 
         $input = $request->all();
+
+        if($request->hasFile('product_image')){
+            $filenameWithExt = $request->file('product_image')->getClientOriginalName();
+
+            // Get Filename
+            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+
+            // Get just Extension
+            $extension = $request->file('product_image')->getClientOriginalExtension();
+
+            // Filename to store 
+            $fileNameToStore = $filename . '_' . time() . '.' . $extension;
+            $input['product_image'] = $fileNameToStore;
+
+            // Upload Image
+            $path = $request->file('product_image')->storeAs('public/image', $fileNameToStore);
+        } else {
+            $fileNameToStore = 'noimage.jpg';
+            $input['product_image'] = $fileNameToStore;
+        }
         
         // Create the new category
         Product::create($input);
