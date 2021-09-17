@@ -29,8 +29,8 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $categories = Category::all();
-        return view('admin.categories.categories', compact('categories'));
+        $products = Products::all();
+        return view('admin.products.index', compact('products'));
     }
 
     /**
@@ -40,7 +40,8 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('admin.categories.create');
+        $categories = Category::all();
+        return view('admin.products.create', compact('categories'));
     }
 
     /**
@@ -52,7 +53,7 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'category_name' => 'required',
+            'product_name' => 'required',
         ]);
 
         $input = $request->all();
