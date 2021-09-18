@@ -38,9 +38,15 @@
                       </td>
                       <td>{{ $product->product_name }}</td>
                       <td>{{ $product->category->category_name }}</td>
-                      <td>${{ number_format($product->product_price / 100, 2)}}</td>
+                      <td>$ {{ number_format($product->product_price / 100, 2)}}</td>
                       <td>
-                        <a href="#" class="btn btn-warning">Activate</a>
+                       
+                        @if($product->status == 1)
+                          <a href="#" class="btn btn-success">Unactivate</a>
+                        @else
+                          <a href="#" class="btn btn-warning">Activate</a>
+                        @endif
+
                         <a href="{{ route('products.edit', [$product->id]) }}" class="btn btn-primary">
                           <i class="nav-icon fas fa-edit"></i>
                         </a>

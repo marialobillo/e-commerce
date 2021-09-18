@@ -41,6 +41,11 @@
                 </div>
 
                 <div class="form-group">
+                    {{ Form::label('', 'Status') }}
+                    {!! Form::number('status', ['class' => 'form-control']) !!}
+                </div>
+
+                <div class="form-group">
                     {{ Form::label('', 'Category') }}
                     {{ Form::select('category_id', $categories, null, 
                       [
