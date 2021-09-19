@@ -38,4 +38,27 @@ class CategoryControllerTest extends TestCase
         $response->assertSeeText('Category 1');
         $this->assertEquals(route('categories.index'), url()->current());
     }
+
+     /**
+     * @xtest
+     */
+    public function only_authenticated_users_can_create_new_categories()
+    {
+        $this->withoutExceptionHandling();
+
+        // make a post request to a route to create a category
+        $response = $this
+            ->followingRedirects()
+            ->actingAs($user)
+            ->post(route('categories.store'), [
+            'category_name' => 'Category 1'
+        ]);
+
+        $category = Category::first();
+
+        $this->assertEquals(0, Category::count());
+
+        $response->assertSeeText('Login');
+        $this->assertEquals(route('login'), url()->current());
+    }
 }

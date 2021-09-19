@@ -56,7 +56,6 @@ class ProductControllerTest extends TestCase
     {
         $this->withoutExceptionHandling();
 
-        // create an user 
        
         $category = Category::factory()->create();
 
