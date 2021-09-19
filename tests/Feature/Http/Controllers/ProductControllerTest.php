@@ -46,4 +46,37 @@ class ProductControllerTest extends TestCase
         $response->assertSeeText('Red Hat');
         $this->assertEquals(route('products.index'), url()->current());
     }
+
+
+
+    /**
+     * @xtest
+     */
+    public function only_authenticated_users_can_create_new_products()
+    {
+        $this->withoutExceptionHandling();
+
+        // create an user 
+       
+        $category = Category::factory()->create();
+
+        // make a post request to a route to create a category
+        $response = $this
+            ->followingRedirects()
+            ->actingAs($user)
+            ->post(route('products.store'), [
+            'product_name' => 'Red Hat',
+            'product_price' => '1500',
+            'status' => 1,
+            'category_id' => 1,
+        ]);
+
+        $product = Product::first();
+
+        $this->assertEquals(0, Product::count());
+        
+
+        $response->assertSeeText('Login');
+        $this->assertEquals(route('login'), url()->current());
+    }
 }
