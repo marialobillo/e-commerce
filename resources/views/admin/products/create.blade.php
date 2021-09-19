@@ -15,11 +15,11 @@
           </div>
           <!-- /.card-header -->
           <!-- form start -->
-          {!! Form::open([
+                {!! Form::open([
             'url' => '/products', 
             'method' => 'POST',
             'class' => 'form',
-            'files' => 'true'
+            'files' => 'true',
             ]) !!}  
             {{ Form::token() }} 
             
@@ -42,7 +42,7 @@
 
                 <div class="form-group">
                     {{ Form::label('', 'Status') }}
-                    {!! Form::number('status', ['class' => 'form-control']) !!}
+                    {!! Form::number('status',null,['class' => 'form-control']) !!}
                 </div>
 
                 <div class="form-group">

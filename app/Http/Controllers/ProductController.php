@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use App\Models\Category;
 use Illuminate\Http\Request;
+use App\Http\Requests\ProductRequest;
 
 class ProductController extends Controller
 {
@@ -38,14 +39,14 @@ class ProductController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ProductRequest $request)
     {
-        $request->validate([
-            'product_name' => 'required',
-            'product_price' => 'required',
-            'category_id' => 'required',
-            'product_image' => 'image|nullable|max:1999',
-        ]);
+        // $request->validate([
+        //     'product_name' => 'required',
+        //     'product_price' => 'required',
+        //     'category_id' => 'required',
+        //     'product_image' => 'image|nullable|max:1999',
+        // ]);
 
         $input = $request->all();
 
@@ -82,10 +83,8 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Product $product)
     {
-        $product = Product::findOrFail($id);
-
         return view('products.show', compact('product'));
     }
 
@@ -112,14 +111,14 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Product $product)
+    public function update(ProductRequest $request, Product $product)
     {
 
-        $request->validate([
-            'product_name' => 'required',
-            'product_price' => 'required',
-            'category_id' => 'required',
-        ]);
+        // $request->validate([
+        //     'product_name' => 'required',
+        //     'product_price' => 'required',
+        //     'category_id' => 'required',
+        // ]);
 
         $input = $request->all();
 
