@@ -113,7 +113,7 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Product $product)
     {
 
         $request->validate([
@@ -122,7 +122,6 @@ class ProductController extends Controller
             'category_id' => 'required',
         ]);
 
-        $product = Product::findOrFail($id);
         $input = $request->all();
 
         if($request->hasFile('product_image')){

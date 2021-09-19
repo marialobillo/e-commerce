@@ -83,13 +83,13 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Category $category)
     {
         $request->validate([
             'category_name' => 'required',
         ]);
 
-        $category = Category::findOrFail($id);
+
         $input = $request->all();
 
         // Update the product with Image
