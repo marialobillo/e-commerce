@@ -29,7 +29,7 @@
                     <td>{{ $category->id }}</td>
                     <td>{{ $category->category_name }}</td>
                     <td>
-                        <a href="{{ route('categories.edit', [$category->id]) }}" class="btn btn-primary">
+                        <a href="{{ route('categories.edit', [$category]) }}" class="btn btn-primary">
                         <i class="nav-icon fas fa-edit"></i>
                       </a>
                     
