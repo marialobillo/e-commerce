@@ -41,12 +41,6 @@ class ProductController extends Controller
      */
     public function store(ProductRequest $request)
     {
-        // $request->validate([
-        //     'product_name' => 'required',
-        //     'product_price' => 'required',
-        //     'category_id' => 'required',
-        //     'product_image' => 'image|nullable|max:1999',
-        // ]);
 
         $input = $request->all();
 
@@ -114,11 +108,6 @@ class ProductController extends Controller
     public function update(ProductRequest $request, Product $product)
     {
 
-        // $request->validate([
-        //     'product_name' => 'required',
-        //     'product_price' => 'required',
-        //     'category_id' => 'required',
-        // ]);
 
         $input = $request->all();
 
