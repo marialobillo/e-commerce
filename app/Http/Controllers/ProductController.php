@@ -160,4 +160,27 @@ class ProductController extends Controller
         return redirect('/products')
             ->with('success', 'Product was deleted successfully.');
     }
+
+    /**
+     * Activated a product
+     */
+    public function activate_product(Product $id)
+    {
+        $product->status = 1;
+        $product->update();
+
+        return back()->with('status', 'The product has been successfully activated.');
+    }
+
+    /**
+     * Deactivated a product
+     */
+    public function deactivate_product(Product $id)
+    {
+        $product->status = 0;
+        $product->update();
+
+        return back()->with('status', 'The product has been successfully De-activated.');
+    }
+
 }
