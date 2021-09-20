@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use App\Models\Category;
 use Illuminate\Http\Request;
+use App\Services\ProductService;
 use App\Http\Requests\ProductRequest;
 
 class ProductController extends Controller
@@ -102,10 +103,11 @@ class ProductController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  Product  $product
+     * @param  ProductService $productService
      * @return \Illuminate\Http\Response
      */
-    public function update(ProductRequest $request, Product $product)
+    public function update(ProductRequest $request, Product $product, ProductService $productService)
     {
 
 
@@ -127,6 +129,8 @@ class ProductController extends Controller
             // Upload Image
             $path = $request->file('product_image')->storeAs('public/image', $fileNameToStore);
         } 
+
+        $productService->setupProductImage($request);
 
         // Update the product with Image
         $product->update($input);
