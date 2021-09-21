@@ -130,7 +130,7 @@ class ProductController extends Controller
             $path = $request->file('product_image')->storeAs('public/image', $fileNameToStore);
         } 
 
-        $productService->setupProductImage($request);
+        
 
         // Update the product with Image
         $product->update($input);
