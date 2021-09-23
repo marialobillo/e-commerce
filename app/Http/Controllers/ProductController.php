@@ -157,8 +157,9 @@ class ProductController extends Controller
     /**
      * Activated a product
      */
-    public function activate_product(Product $id)
+    public function products_activate($id)
     {
+        $product = Product::findOrFail($id);
         $product->status = 1;
         $product->update();
 
@@ -168,8 +169,9 @@ class ProductController extends Controller
     /**
      * Deactivated a product
      */
-    public function deactivate_product(Product $id)
+    public function products_deactivate($id)
     {
+        $product = Product::findOrFail($id);
         $product->status = 0;
         $product->update();
 

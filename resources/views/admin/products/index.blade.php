@@ -42,9 +42,9 @@
                       <td>$ {{ number_format($product->product_price / 100, 2)}}</td>
                       <td>
                         @if($product->status == 1)
-                          <a href="#" class="btn btn-secondary">InActive</a>
+                          <a href="{{ route('products.deactivate', [$product->id]) }}" class="btn btn-secondary">Deactivate</a>
                         @else
-                          <a href="#" class="btn btn-success">Published</a>
+                          <a href="{{ route('products.activate', [$product->id]) }}" class="btn btn-success">Activate</a>
                         @endif
                       </td>
                       <td>

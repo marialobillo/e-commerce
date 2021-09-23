@@ -47,8 +47,8 @@ Route::resource('sliders', SliderController::class);
 Route::resource('products', ProductController::class);
 Route::resource('orders', OrderController::class);
 
-Route::put('/activate_product', [ProductController::class, 'activate_product'])->name('products.activate');
-Route::put('/deactivate_product', [ProductController::class, 'deactivate_product'])->name('products.deactivate');
+Route::get('/products_deactivate/{id}', [ProductController::class, 'products_deactivate'])->name('products.deactivate');
+Route::get('/products_activate/{id}', [ProductController::class, 'products_activate'])->name('products.activate');
 
 // Route::get('/products', [ProductController::class, 'products']);
 // Route::get('/addproduct', [ProductController::class, 'addProduct']);
