@@ -83,7 +83,6 @@ class CategoryController extends Controller
         // Update the product with Image
         $category->update($input);
        
-
         return redirect()->route('categories.index')    
             ->with('success', 'Category have been updated successfully');
     }
