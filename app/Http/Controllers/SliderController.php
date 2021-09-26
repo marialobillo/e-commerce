@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\SliderRequest;
 
 class SliderController extends Controller
 {
@@ -37,19 +38,16 @@ class SliderController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(SliderRequest $request)
     {
-        $request->validate([
-            'category_name' => 'required',
-        ]);
 
         $input = $request->all();
         
         // Create the new category
-        Category::create($input);
+        Slider::create($input);
 
-        return redirect()->to('/categories')
-            ->with('success', 'Category created successfully');
+        return redirect()->to('/sliders')
+            ->with('success', 'Slider created successfully');
     }
 
     /**
@@ -58,11 +56,9 @@ class SliderController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Slider $slider)
     {
-        $category = Category::findOrFail($id);
-
-        return view('categories.show', compact('category'));
+        return view('admin.sliders.show', compact('slider'));
     }
 
     /**
@@ -71,11 +67,9 @@ class SliderController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Slider $slider)
     {
-        $category = Category::find($id);
-
-        return view('admin.categories.edit', compact('category'));      
+        return view('admin.sliders.edit', compact('slider'));      
     }
 
     /**
