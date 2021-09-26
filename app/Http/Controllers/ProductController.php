@@ -59,7 +59,7 @@ class ProductController extends Controller
             $input['product_image'] = $fileNameToStore;
 
             // Upload Image
-            $path = $request->file('product_image')->storeAs('public/image', $fileNameToStore);
+            $path = $request->file('product_image')->storeAs('public/products_img', $fileNameToStore);
         } else {
             $fileNameToStore = 'noimage.jpg';
             $input['product_image'] = $fileNameToStore;
@@ -68,7 +68,7 @@ class ProductController extends Controller
         // Create the new category
         Product::create($input);
 
-        return redirect()->route('products.index')
+        return redirect()->route('admin.products.index')
             ->with('success', 'Product has been created successfully');
     }
 
@@ -80,7 +80,7 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
-        return view('products.show', compact('product'));
+        return view('admin.products.show', compact('product'));
     }
 
     /**
@@ -127,7 +127,7 @@ class ProductController extends Controller
             $input['product_image'] = $fileNameToStore;
 
             // Upload Image
-            $path = $request->file('product_image')->storeAs('public/image', $fileNameToStore);
+            $path = $request->file('product_image')->storeAs('public/products_img', $fileNameToStore);
         } 
 
         
@@ -136,7 +136,7 @@ class ProductController extends Controller
         $product->update($input);
        
 
-        return redirect()->route('products.index')    
+        return redirect()->route('admin.products.index')    
             ->with('success', 'Product have been updated successfully');
     }
 

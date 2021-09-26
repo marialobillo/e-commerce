@@ -42,6 +42,26 @@ class SliderController extends Controller
     {
 
         $input = $request->all();
+
+        if($request->hasFile('slider_image')){
+            $filenameWithExt = $request->file('slider_image')->getClientOriginalName();
+
+            // Get Filename
+            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+
+            // Get just Extension
+            $extension = $request->file('slider_image')->getClientOriginalExtension();
+
+            // Filename to store 
+            $fileNameToStore = $filename . '_' . time() . '.' . $extension;
+            $input['slider_image'] = $fileNameToStore;
+
+            // Upload Image
+            $path = $request->file('slider_image')->storeAs('public/sliders_img', $fileNameToStore);
+        } else {
+            $fileNameToStore = 'noimage.jpg';
+            $input['slider_image'] = $fileNameToStore;
+        }
         
         // Create the new category
         Slider::create($input);
@@ -85,6 +105,23 @@ class SliderController extends Controller
 
         // Update the slider with image
         $slider->update($input);
+
+        if($request->hasFile('slider_image')){
+            $filenameWithExt = $request->file('slider_image')->getClientOriginalName();
+
+            // Get Filename
+            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+
+            // Get just Extension
+            $extension = $request->file('slider_image')->getClientOriginalExtension();
+
+            // Filename to store 
+            $fileNameToStore = $filename . '_' . time() . '.' . $extension;
+            $input['slider_image'] = $fileNameToStore;
+
+            // Upload Image
+            $path = $request->file('slider_image')->storeAs('public/sliders_img', $fileNameToStore);
+        } 
        
 
         return redirect()->route('admin.sliders.index')    
