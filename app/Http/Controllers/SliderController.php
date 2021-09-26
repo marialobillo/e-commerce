@@ -8,17 +8,6 @@ class SliderController extends Controller
 {
     
 
-    public function categories()
-    {
-        return view('admin.categories');
-    }
-
-    
-    public function addCategory()
-    {
-        return view('admin.addcategory');
-    }
-
 
 
     /**
@@ -28,8 +17,8 @@ class SliderController extends Controller
      */
     public function index()
     {
-        $categories = Category::all();
-        return view('admin.categories.categories', compact('categories'));
+        $sliders = Slider::all();
+        return view('admin.sliders.index', compact('sliders'));
     }
 
     /**
@@ -39,7 +28,7 @@ class SliderController extends Controller
      */
     public function create()
     {
-        return view('admin.categories.create');
+        return view('admin.sliders.create');
     }
 
     /**
