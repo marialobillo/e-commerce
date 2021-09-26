@@ -79,21 +79,16 @@ class SliderController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(SliderRequest $request, Slider $slider)
     {
-        $request->validate([
-            'category_name' => 'required',
-        ]);
-
-        $category = Category::findOrFail($id);
         $input = $request->all();
 
-        // Update the product with Image
-        $category->update($input);
+        // Update the slider with image
+        $slider->update($input);
        
 
-        return redirect()->route('categories.index')    
-            ->with('success', 'Category have been updated successfully');
+        return redirect()->route('admin.sliders.index')    
+            ->with('success', 'Slider have been updated successfully');
     }
 
     /**
@@ -102,12 +97,11 @@ class SliderController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Slider $slider)
     {
-        $category = Category::findOrFail($id);
-        $category->delete();
+        $slider->delete();
 
-        return redirect('/categories')
-            ->with('success', 'Category was deleted successfully.');
+        return redirect('/sliders')
+            ->with('success', 'Slider was deleted successfully.');
     }
 }
