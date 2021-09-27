@@ -28,7 +28,7 @@
                     <tbody>
                       @foreach($sliders as $slider)
                     <tr>
-                      <td>1</td>
+                      <td>{{ $slider->id }}</td>
                       <td>
                         <img src="/storage/sliders_img/{{ $slider->slider_image }}" class="profile elevation-2" width="140px">
                       </td>
@@ -42,9 +42,15 @@
                       @endif
                       </td>
                       <td>
-                        <a href="#" class="btn btn-warning">Activate</a>
-                        <a href="#" class="btn btn-primary"><i class="nav-icon fas fa-edit"></i></a>
-                        <a href="#" id="delete" class="btn btn-danger" ><i class="nav-icon fas fa-trash"></i></a>
+                        <a href="{{ route('sliders.edit', [$slider->id]) }}" class="btn btn-primary">
+                          <i class="nav-icon fas fa-edit"></i>
+                        </a>
+                        {!! Form::open([ 'route' => ['sliders.destroy', $slider],
+                        'method' => 'DELETE', 'class' => 'float-right'
+                          ]) !!}
+                            {{ Form::token() }} 
+                            {{ Form::submit('Delete', ['class' => 'btn btn-danger']) }}
+                        {!! Form::close() !!}
                       </td>
                     </tr>
                       @endforeach

@@ -48,19 +48,16 @@
                         @endif
                       </td>
                       <td>
-                       
-                        
-
                         <a href="{{ route('products.edit', [$product->id]) }}" class="btn btn-primary">
                           <i class="nav-icon fas fa-edit"></i>
                         </a>
-                        {{-- <a href="#" id="delete" class="btn btn-danger" ><i class="nav-icon fas fa-trash"></i></a> --}}
+                       
                         {!! Form::open([ 'route' => ['products.destroy', $product],
                         'method' => 'DELETE', 'class' => 'float-right'
                           ]) !!}
                             {{ Form::token() }} 
                             {{ Form::submit('Delete', ['class' => 'btn btn-danger']) }}
-                      {!! Form::close() !!}
+                        {!! Form::close() !!}
                       </td>
                     </tr>
                   @endforeach
