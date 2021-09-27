@@ -35,7 +35,7 @@
                       <td>{{ $product->id }}</td>
                       <td>
                         
-                        <img src="/storage/image/{{ $product->product_image }}" class="profile elevation-2" width="140px">
+                        <img src="/storage/products_img/{{ $product->product_image }}" class="profile elevation-2" width="140px">
                       </td>
                       <td>{{ $product->product_name }}</td>
                       <td>{{ $product->category->category_name }}</td>
