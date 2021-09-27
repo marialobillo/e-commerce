@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Slider;
 use App\Models\Product;
 use App\Models\Category;
 use Illuminate\Database\Seeder;
@@ -20,5 +21,7 @@ class DatabaseSeeder extends Seeder
         Category::factory(5)->create();
 
         Product::factory(8)->create();
+
+        Slider::factory(3)->create();
     }
 }
