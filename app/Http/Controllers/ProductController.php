@@ -68,7 +68,7 @@ class ProductController extends Controller
         // Create the new category
         Product::create($input);
 
-        return redirect()->route('admin.products.index')
+        return redirect()->route('products.index')
             ->with('success', 'Product has been created successfully');
     }
 

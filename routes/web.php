@@ -8,7 +8,6 @@ use App\Http\Controllers\ClientController;
 use App\Http\Controllers\SliderController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\ProductsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,12 +20,6 @@ use App\Http\Controllers\ProductsController;
 |
 */
 
-
-
-
-
-
-//Route::resource('products', ProductController::class);
 
 Auth::routes();
 
@@ -52,8 +45,8 @@ Route::get('/products_deactivate/{id}', [ProductController::class, 'products_dea
 Route::get('/products_activate/{id}', [ProductController::class, 'products_activate'])->name('products.activate');
 
 // Activate-Deactivate Sliders
-Route::get('/sliders_deactivate/{id}', [SlidersController::class, 'sliders_deactivate'])->name('sliders.deactivate');
-Route::get('/sliderss_activate/{id}', [SlidersController::class, 'sliders_activate'])->name('sliders.activate');
+Route::get('/sliders_deactivate/{id}', [SliderController::class, 'sliders_deactivate'])->name('sliders.deactivate');
+Route::get('/sliderss_activate/{id}', [SliderController::class, 'sliders_activate'])->name('sliders.activate');
 
 
 

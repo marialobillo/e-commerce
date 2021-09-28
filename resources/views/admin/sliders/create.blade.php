@@ -44,6 +44,57 @@
                     <input type="submit" class="btn btn-warning" value="Save" >
                   </div>
                 </form>
+
+
+                 <!-- form start -->
+                 {!! Form::open([
+                  'url' => '/products', 
+                  'method' => 'POST',
+                  'class' => 'form',
+                  'files' => 'true',
+                  ]) !!}  
+                  {{ Form::token() }} 
+                  
+                    
+                    <div class="card-body">
+                      <div class="form-group">
+                        {{ Form::label('', 'Name') }}
+                        {{ Form::text('product_name', '', ['class' => 'form-control']) }}
+                      </div>
+      
+                      <div class="form-group">
+                          {{ Form::label('', 'Price') }}
+                          {{ Form::text('product_price', '', ['class' => 'form-control']) }}
+                      </div>
+      
+                      <div class="form-group">
+                          {{ Form::label('', 'Image') }}
+                          {!! Form::file('product_image', ['class' => 'form-control']) !!}
+                      </div>
+      
+                      <div class="form-group">
+                          {{ Form::label('', 'Status') }}
+                          {!! Form::number('status',null,['class' => 'form-control']) !!}
+                      </div>
+      
+                      <div class="form-group">
+                          {{ Form::label('', 'Category') }}
+                          {{ Form::select('category_id', $categories, null, 
+                            [
+                              'class' => 'form-control', 
+                              'placeholder' => 'Select Category'
+                            ]) }}
+                      </div>
+                      
+                    </div>
+                   
+      
+                    <div class="card-footer">
+                      {{ Form::submit('Save Product', ['class' => 'btn btn-info']) }}
+                    </div>
+                {!! Form::close() !!}
+
+                
               </div>
               <!-- /.card --> 
               </div>
