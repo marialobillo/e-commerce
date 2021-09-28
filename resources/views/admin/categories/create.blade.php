@@ -18,7 +18,7 @@
             <!-- /.card-header -->
             <!-- form start -->
             {!! Form::open([
-              'url' => '/categories', 
+              'route' => 'categories.store', 
               'method' => 'POST',
               'class' => 'form'
               ]) !!}  
