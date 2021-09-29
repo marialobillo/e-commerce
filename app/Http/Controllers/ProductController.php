@@ -136,7 +136,7 @@ class ProductController extends Controller
         $product->update($input);
        
 
-        return redirect()->route('admin.products.index')    
+        return redirect()->route('products.index')    
             ->with('success', 'Product have been updated successfully');
     }
 
@@ -150,7 +150,7 @@ class ProductController extends Controller
     {
         $product->delete();
 
-        return redirect('/products')
+        return redirect()->route('products.index')
             ->with('success', 'Product was deleted successfully.');
     }
 
