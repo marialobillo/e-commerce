@@ -29,7 +29,7 @@
 
 
                       <div class="card-body">
-                        
+
                         <div class="form-group">
                           {{ Form::label('', 'Description 1') }}
                           {{ Form::text('description1', '', ['class' => 'form-control']) }}
@@ -47,6 +47,8 @@
 
                         <div class="form-group">
                           {{ Form::label('', 'Status') }}
+                          {{ Form::checkbox('Deactivated', '0', true) }}
+                          {{ Form::checkbox('Activated', '1', false) }}
                           {!! Form::number('status',null,['class' => 'form-control']) !!}
                       </div>
         
