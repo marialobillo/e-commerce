@@ -67,7 +67,7 @@ class SliderController extends Controller
         // Create the new category
         Slider::create($input);
 
-        return redirect()->to('/sliders')
+        return redirect()->route('sliders.index')
             ->with('success', 'Slider created successfully');
     }
 
@@ -104,9 +104,6 @@ class SliderController extends Controller
     {
         $input = $request->all();
 
-        // Update the slider with image
-        $slider->update($input);
-
         if($request->hasFile('slider_image')){
             $filenameWithExt = $request->file('slider_image')->getClientOriginalName();
 
@@ -122,10 +119,12 @@ class SliderController extends Controller
 
             // Upload Image
             $path = $request->file('slider_image')->storeAs('public/sliders_img', $fileNameToStore);
-        } 
+        }
+        
+        // Update the slider with image
+        $slider->update($input);
        
-
-        return redirect()->route('admin.sliders.index')    
+        return redirect()->route('sliders.index')    
             ->with('success', 'Slider have been updated successfully');
     }
 

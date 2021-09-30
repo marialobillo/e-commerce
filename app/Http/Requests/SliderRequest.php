@@ -26,7 +26,7 @@ class SliderRequest extends FormRequest
         return [
             'description1' => 'required',
             'description2' => 'required',
-            'slider_image' => 'required'
+            'status' => 'required'
         ];
     }
 }

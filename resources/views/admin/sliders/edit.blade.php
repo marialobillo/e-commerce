@@ -19,14 +19,13 @@
                 <!-- form start -->
                    <!-- form start -->
                    {!! Form::open([
-                    'url' => '/sliders', 
-                    'method' => 'POST',
+                    'action' => ['App\Http\Controllers\SliderController@update', $slider->id], 
+                    'method' => 'PUT',
                     'class' => 'form',
                     'files' => 'true',
                     ]) !!}  
                     {{ Form::token() }} 
-
-
+                    {{ Form::hidden('_method', 'PUT') }}
 
                       <div class="card-body">
 
