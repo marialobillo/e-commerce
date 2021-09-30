@@ -47,9 +47,10 @@
 
                         <div class="form-group">
                           {{ Form::label('', 'Status') }}
-                          {{ Form::checkbox('Deactivated', '0', true) }}
-                          {{ Form::checkbox('Activated', '1', false) }}
-                          {!! Form::number('status',null,['class' => 'form-control']) !!}
+                          {{ Form::select('status', array('1' => 'Activated', '0' => 'Deactivated'), null, 
+                          [
+                            'class' => 'form-control'
+                          ]) }}
                       </div>
         
                       </div>
