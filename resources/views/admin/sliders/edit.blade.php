@@ -1,88 +1,82 @@
 @extends('admin_panel.admin')
 
+
+
 @section('content')
 
-<!-- Main content -->
-<section class="content">
-  <div class="container-fluid">
-    <div class="row">
-      <!-- left column -->
-      <div class="col-md-12">
-        <!-- jquery validation -->
-        <div class="card card-primary">
-          <div class="card-header">
-            <h3 class="card-title">Add Product</small></h3>
-          </div>
-          <!-- /.card-header -->
-          <!-- form start -->
-          {!! Form::open([
-            'action' => ['App\Http\Controllers\ProductController@update',$product->id], 
-            'method' => 'PUT',
-            'class' => 'form',
-            'files' => 'true'
-            ]) !!}  
-             {{ Form::token() }} 
-             {{ Form::hidden('_method', 'PUT') }} 
-            
-              
-              <div class="card-body">
-                <div class="form-group">
-                  {{ Form::label('', 'Name') }}
-                  {{ Form::text('product_name', $product->product_name, ['class' => 'form-control']) }}
+     <!-- Main content -->
+     <section class="content">
+        <div class="container-fluid">
+          <div class="row">
+            <!-- left column -->
+            <div class="col-md-12">
+              <!-- jquery validation -->
+              <div class="card card-warning">
+                <div class="card-header">
+                  <h3 class="card-title">Edit slider</h3>
                 </div>
+                <!-- /.card-header -->
+                <!-- form start -->
+                   <!-- form start -->
+                   {!! Form::open([
+                    'url' => '/sliders', 
+                    'method' => 'POST',
+                    'class' => 'form',
+                    'files' => 'true',
+                    ]) !!}  
+                    {{ Form::token() }} 
 
-                <div class="form-group">
-                    {{ Form::label('', 'Price') }}
-                    {{ Form::text('product_price', $product->product_price, ['class' => 'form-control']) }}
-                </div>
 
-                <div class="form-group">
-                    {{ Form::label('', 'Image') }}
-                    <img src="/storage/image/{{ $product->product_image }}" class="elevation-2" width="140px">
-                    {!! Form::file('product_image', ['class' => 'form-control']) !!}
-                </div>
 
-                <div class="form-group">
-                    {{ Form::label('', 'Status') }}
-                    {!! Form::number('status', $product->status, ['class' => 'form-control']) !!}
-                </div>
+                      <div class="card-body">
 
-                <div class="form-group">
-                    {{ Form::label('', 'Category') }}
-                    {{ Form::select('category_id', $categories, $product->category_id, 
-                      [
-                        'class' => 'form-control', 
-                        'placeholder' => 'Select Category'
-                      ]) }}
-                </div>
+                        <div class="form-group">
+                          {{ Form::label('', 'Description 1') }}
+                          {{ Form::text('description1', $slider->description1, ['class' => 'form-control']) }}
+                        </div>
+        
+                        <div class="form-group">
+                            {{ Form::label('', 'Description 2') }}
+                            {{ Form::text('description2', $slider->description2, ['class' => 'form-control']) }}
+                        </div>
+        
+                        <div class="form-group">
+                            {{ Form::label('', 'Image') }}
+                            <img src="/storage/sliders_img/{{ $slider->slider_image }}" class="elevation-2" width="140px">
+                            {!! Form::file('slider_image', ['class' => 'form-control']) !!}
+                        </div>
+
+                        <div class="form-group">
+                          {{ Form::label('', 'Status') }}
+                          {{ Form::select('status', array('1' => 'Activated', '0' => 'Deactivated'), null, 
+                          [
+                            'class' => 'form-control'
+                          ]) }}
+                      </div>
+        
+                      </div>
+                   
+      
+                      <div class="card-footer">
+                        {{ Form::submit('Save Slider', ['class' => 'btn btn-info']) }}
+                      </div>
+                    {!! Form::close() !!}
+
+
                 
               </div>
-             
-
-              <div class="card-footer">
-                {{ Form::submit('Save Product', ['class' => 'btn btn-info']) }}
+              <!-- /.card --> 
               </div>
-          {!! Form::close() !!}
-
-         
-        </div>
-        <!-- /.card -->
-        </div>
-      <!--/.col (left) -->
-      <!-- right column -->
-      <div class="col-md-6">
-
-      </div>
-      <!--/.col (right) -->
-    </div>
-    <!-- /.row -->
-  </div><!-- /.container-fluid -->
-</section>
- 
-    
-   
-
-     
+            <!--/.col (left) -->
+            <!-- right column -->
+            <div class="col-md-6">
   
-@endsection
+            </div>
+            <!--/.col (right) -->
+          </div>
+          <!-- /.row -->
+        </div><!-- /.container-fluid -->
+      </section>
+      <!-- /.content -->
 
+@endsection
