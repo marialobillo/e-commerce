@@ -142,16 +142,16 @@ class SliderController extends Controller
             ->with('success', 'Slider was deleted successfully.');
     }
 
-        /**
-     * Activated a product
+    /**
+     * Activated a slider
      */
-    public function products_activate($id)
+    public function sliders_activate($id)
     {
-        $product = Product::findOrFail($id);
-        $product->status = 1;
-        $product->update();
+        $slider = Slider::findOrFail($id);
+        $slider->status = 1;
+        $slider->update();
 
-        return back()->with('status', 'The product has been successfully activated.');
+        return back()->with('status', 'The slider has been successfully activated.');
     }
 
     /**
