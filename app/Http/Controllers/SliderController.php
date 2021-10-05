@@ -141,4 +141,28 @@ class SliderController extends Controller
         return redirect('/sliders')
             ->with('success', 'Slider was deleted successfully.');
     }
+
+        /**
+     * Activated a product
+     */
+    public function products_activate($id)
+    {
+        $product = Product::findOrFail($id);
+        $product->status = 1;
+        $product->update();
+
+        return back()->with('status', 'The product has been successfully activated.');
+    }
+
+    /**
+     * Deactivated a slider
+     */
+    public function sliders_deactivate($id)
+    {
+        $slider = Slider::findOrFail($id);
+        $slider->status = 0;
+        $slider->update();
+
+        return back()->with('status', 'The slider has been successfully De-activated.');
+    }
 }
